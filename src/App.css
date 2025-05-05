@@ -1,0 +1,259 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #fefae0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.app {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Tiêu đề */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: linear-gradient(to right, #588157, #a3b18a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.icon {
+  display: inline-block;
+  /* transform: translateY(-2px); */
+}
+
+/* Phụ đề & hiệu ứng */
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  color: #6b705c;
+  font-weight: 500;
+  text-align: center;
+}
+
+.tap-me {
+  font-size: 0.85rem;
+  color: #6b705c;
+  animation: pulse 2s infinite;
+  margin-bottom: 1.4rem;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Các nút */
+.buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.vertical-buttons {
+  flex-direction: column;
+  align-items: center;
+}
+
+.connect-button,
+.plant-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  color: white;
+}
+
+.connect-button {
+  background-color: #588157;
+}
+
+.connect-button:hover {
+  background-color: #6c9a68;
+  transform: scale(1.03);
+}
+
+.plant-button {
+  background-color: #a3b18a;
+}
+
+.plant-button:hover {
+  background-color: #588157;
+}
+
+.connected-account {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Ảnh minh họa */
+.illustration {
+  width: 240px;
+  max-width: 90%;
+  margin-top: 1.8rem;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  display: block;
+}
+
+/* NFT display */
+.nft-display {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nft-display img {
+  width: 220px;
+  max-height: 240px;
+  object-fit: contain;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
+  background-color: #f0f0f0;
+  border: 4px solid #d4a373;
+}
+
+.nft-display p {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #344e41;
+  margin: 0;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Popup & loading */
+.popup {
+  margin-top: 2rem;
+  background: #fffadd;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  max-width: 90%;
+  font-weight: 500;
+  color: #333;
+}
+
+.popup-animate {
+  animation: popupFade 0.6s ease-out;
+}
+
+@keyframes popupFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeScaleIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeScaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-size: 1.1rem;
+  color: #344e41;
+}
+
+.spinner {
+  border: 6px solid #eee;
+  border-top: 6px solid #a3b18a;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.9s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .title {
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+.center-when-no-wallet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.etherscan-link {
+  font-size: 0.9rem;
+  color: #588157;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.etherscan-link:hover {
+  color: #344e41;
+}
+
+.faucet-link {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: #155e75;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.faucet-link:hover {
+  color: #0c4a6e;
+}
+
