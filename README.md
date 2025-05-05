@@ -1,107 +1,91 @@
-# 🌱 Trồng Cây – Nhận NFT
+# 🌱 DApp Trồng Cây – Nhận NFT
 
-Mini DApp Web3 đơn giản, dễ thương, dễ viral. Người dùng có thể kết nối ví, trồng cây ngẫu nhiên và nhận về một NFT cây độc đáo – tất cả được lưu trữ trên IPFS.
+## 🎯 MỤC TIÊU
+Tạo một DApp mini-game Web3 thân thiện với người dùng, cho phép:
+- Nhấn nút **“🌱 Trồng cây”**
+- Đếm ngược **10 giây** tạo cảm giác hồi hộp
+- Nhận **1 NFT cây** ngẫu nhiên từ bộ metadata lưu trên IPFS
 
----
+## ⚙️ CÔNG NGHỆ SỬ DỤNG
 
-## 🚀 Demo
-👉 [https://trong-cay.vercel.app](https://trong-cay.vercel.app)
+| Thành phần        | Công nghệ                                    |
+|-------------------|----------------------------------------------|
+| **Blockchain**     | Sepolia Testnet                              |
+| **Smart Contract** | Solidity + Hardhat + OpenZeppelin v5         |
+| **Frontend**       | React + Vite + Ethers.js v6                  |
+| **Lưu trữ NFT**    | IPFS (Web3.Storage)                          |
+| **Deploy frontend**| Vercel                                       |
+| **Kết nối ví**      | MetaMask                                     |
 
----
+## 🧠 SMART CONTRACT
 
-## 🎯 Mục Tiêu
+- **Tên file**: `FarmNFT.sol`
+- **Chuẩn**: ERC-721
+- **Hàm chính**:
+  - `mint()` – Sinh NFT mới từ metadata ngẫu nhiên
+  - `addCID(string[] calldata _metadataURIs)` – Cho phép chủ sở hữu thêm danh sách metadata
 
-- 🌱 Nhấn nút “Trồng cây” để gieo hạt
-- ⏳ Đợi 10 giây tạo cảm giác hồi hộp
-- 🎁 Mint 1 NFT ngẫu nhiên (ảnh từ IPFS)
-- 🖼️ Hiển thị hình ảnh + tên NFT
-- 🔍 Link xem NFT trên Etherscan
-- 💧 Link nhận ETH testnet
+> **Địa chỉ contract (Sepolia)**  
+> `0xEeF0aa6efF8B161801031fe01eBce54aB04Dfee4`
 
----
+## 📦 METADATA NFT
 
-## 🛠️ Công Nghệ
+- **CID IPFS gốc**:  
+  `bafybeifpdlajqftq7jbbt2ykk33xc7xaplp46fmgmizg45eeair7qj6tru`
 
-| Phần | Công cụ |
-|------|--------|
-| Smart Contract | Solidity + Hardhat |
-| Blockchain | Sepolia Testnet |
-| NFT chuẩn | ERC-721 |
-| Frontend | React + Vite |
-| Web3 | ethers.js v6 |
-| Hosting | Vercel |
-| Lưu trữ ảnh NFT | IPFS (via Web3.Storage) |
+- **Gồm 5 cây NFT đặc biệt**:
+  - 🌾 **Cây Lúa**
+  - 💰 **Cây Tiền**
+  - 🧠 **Cây Tri Thức**
+  - 🧧 **Cây Lì Xì Tết**
+  - 🪐 **Cây Đa Vũ Trụ**
 
----
+- **Link mẫu**:  
+  `https://w3s.link/ipfs/bafybeifpdlajqftq7jbbt2ykk33xc7xaplp46fmgmizg45eeair7qj6tru/cay_lua_metadata.json`
 
-## 🧱 Cấu Trúc Dự Án
+## 🎨 GIAO DIỆN FRONTEND
 
-```
-📁 public/
- ┣ cute-sprout.png
- ┣ default-tree.png
+### Tính năng:
+- 🌱 Nút **“Trồng cây”**
+- ⏳ **Đếm ngược 10 giây**
+- 🖼️ Hiển thị **ảnh + tên cây NFT** từ IPFS
+- 🔍 Link **Etherscan** xem NFT
+- 💧 Nút nhận ETH testnet (đến Faucet)
 
-📁 src/
- ┣ App.jsx
- ┣ App.css
- ┗ contracts/
-    ┗ FarmNFT.json
+### Thiết kế:
+- Màu **pastel**, **bo tròn**, thân thiện Gen Z
+- **Responsive** cho mobile
+- Có hiệu ứng loading và popup chúc mừng 🎊
 
-package.json
-vite.config.js
-```
+## 🚀 DAPP ONLINE
 
----
+**Link trải nghiệm:**  
+👉 [https://farm-frontend-pink.vercel.app](https://farm-frontend-pink.vercel.app)
 
-## 📦 Cài Đặt & Chạy Local
+- ✅ Kết nối ví
+- ✅ Mint NFT thật
+- ✅ Xem NFT trên Etherscan
 
-```bash
-git clone https://github.com/yourname/trong-cay-nft.git
-cd trong-cay-nft
-npm install
-npm run dev
-```
+## 🔧 QUY TRÌNH TRIỂN KHAI
 
----
+1. Viết và test contract `FarmNFT.sol`
+2. Tạo 5 file metadata NFT cây
+3. Upload metadata lên IPFS (Web3.Storage)
+4. Deploy contract lên **Sepolia**
+5. Chạy script `addCID.js` để thêm metadata
+6. Viết **frontend React + Ethers.js**
+7. Gắn logic gọi `mint()` + hiển thị metadata
+8. Thêm hiệu ứng, link Etherscan, nút faucet
+9. Deploy frontend lên **Vercel**
 
-## 🌐 Deploy lên Vercel
+## ✅ TRẠNG THÁI HOÀN THIỆN
 
-```bash
-npm run build
-npx vercel
-```
-
-> Output directory: `dist`
-
----
-
-## 📄 Smart Contract
-
-Contract `FarmNFT.sol` được deploy lên Sepolia:
-
-```
-📬 Address: 0xEeF0aa6efF8B161801031fe01eBce54aB04Dfee4
-🔗 Etherscan: https://sepolia.etherscan.io/address/0xEeF0aa6efF8B161801031fe01eBce54aB04Dfee4
-```
-
----
-
-## 📥 Nhận ETH Testnet
-
-Để sử dụng DApp, bạn cần ETH testnet (miễn phí):
-
-🔗 https://sepoliafaucet.com
-
----
-
-## 📸 Giao Diện
-
-| Trước khi mint | Sau khi mint |
-|----------------|---------------|
-| ![sprout](public/cute-sprout.png) | ![example](public/default-tree.png) |
-
----
-
-## 💬 License
-
-MIT License. Copyright © 2025.
+| Tính năng                         | Trạng thái |
+|----------------------------------|------------|
+| Kết nối ví                        | ✅         |
+| Trồng cây + đếm ngược            | ✅         |
+| Mint NFT thật                    | ✅         |
+| Hiển thị ảnh + tên từ IPFS       | ✅         |
+| Link xem NFT trên Etherscan      | ✅         |
+| Giao diện tối ưu cho mobile      | ✅         |
+| DApp chạy online                 | ✅         |
